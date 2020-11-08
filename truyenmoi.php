@@ -49,7 +49,7 @@
 						<li><a href="#" class="scroll">TRUYỆN MỚI</a><label>|</label></li>
 						<li><a href="#" class="scroll">THỂ LOẠI</a><label>|</label></li>
 						<li><a href="#" class="scroll">ĐĂNG NHẬP</a><label>|</label></li>
-						<li><a href="#" class="scroll">TÌA KHOẢN</a></li>
+						<li><a href="#" class="scroll">TÀI KHOẢN</a></li>
 					</ul>
 			 	</div>
 		 </div>
