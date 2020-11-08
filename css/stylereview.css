@@ -1,0 +1,170 @@
+﻿body{
+
+}
+.MDTS{
+	font-size : 40px;
+	font-family : Courier;
+	font-weight : bold;
+	color : purple;
+	text-align:center;
+}
+.imgS{
+	width : 100%;
+	height : auto;
+}
+.imgHT{
+	width : 100%;
+	height : 100%;
+}
+.info{
+	font-weight : bold;
+	font-size : 18px;
+}
+.isinfo{
+	font-size : 15px;
+}
+.button{
+	background-color : #0404B4;
+	color : white;
+	height : auto;
+	width : 100%;
+	font-weight : bold;
+	font-size : 17px;
+}
+.title{
+	font-weight : bold;
+	font-size:23px;
+	font-family: monospace;
+}
+.content{
+	font-size:17px;
+}
+.text{
+	font-size:17px;
+	width : 100%;
+	height : auto;
+	border : 1px solid #3104B4;
+}
+.hint{
+	font-size: 20px;
+	font-family : Lucida Sans Unicode;
+	color : #04B404;
+	position: relative;
+	display: inline-block;
+}
+.hint .inConan{
+	visibility: hidden;
+	background-color : black;
+	color: white;
+	border-radius:10px;
+	width: 650%;
+	border : 1px solid black;
+	padding: 5px 0;
+	position: absolute;
+	left : 50px;
+	top : 35px;
+	z-index: 1;
+}
+.hint .inHKGH{
+	visibility: hidden;
+	width: 280%;
+	background-color : black;
+	color: white;
+	border-radius:10px;
+	border : 1px solid black;
+	padding: 5px 0;
+	position: absolute;
+	left : 30px;
+	top : 60px;
+	z-index: 1;
+}
+.hint .inDeathNote{
+	visibility: hidden;
+	width:  370%;
+	background-color : black;
+	color: white;
+	border-radius:10px;
+	border : 1px solid black;
+	padding: 5px 0;
+	position: absolute;
+	left : 40px;
+	top : 30px;
+	z-index: 1;
+}
+.hint .inDPTK{
+	visibility: hidden;
+	width:  280%;
+	background-color : black;
+	color: white;
+	border-radius:10px;	
+	border : 1px solid black;
+	padding: 5px 0;
+	position: absolute;
+	left : 30px;
+	top : 90px;
+	z-index: 1;
+}
+.hint .inPKTL{
+	visibility: hidden;
+	width: 280%;
+	background-color : black;
+	color: white;
+	border-radius:10px;
+	border : 1px solid black;
+	padding: 5px 0;
+	position: absolute;
+	left : 40px;
+	top : 60px;
+	z-index: 1;
+}
+.hint:hover .inConan{
+	visibility: visible;
+}
+.hint:hover .inHKGH{
+	visibility: visible;
+}
+.hint:hover .inDeathNote{
+	visibility: visible;
+}
+.hint:hover .inDPTK{
+	visibility: visible;
+}
+.hint:hover .inPKTL{
+	visibility: visible;
+}
+.imgTool{
+	width : 40%;
+	height : 40%;
+	float : left;
+	font-size : 14px;
+}
+.infoTool{
+	width: 50%;
+	height : auto;
+	float : right;
+	font-size : 14px;
+}
+.contentTool{
+font-size : 15px;
+}
+.name{
+color :#3A01DF;
+font-weight:bold;
+}
+.SChat{
+width : 20%;
+background-color: #81BEF7;
+}
+.chat{
+
+}
+.forname{
+	background: linear-gradient(to right,#fff,#baabae);
+	border-radius: 5px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-bottom:2px;
+}
+.headdd{
+	background: linear-gradient(to right,#baabae,#fff);
+}

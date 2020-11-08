@@ -1,0 +1,59 @@
+.selectchap{
+    width:100%; border-radius:5px; border:solid blue 1px;margin:50px 0;
+}
+.readchap{
+    width:100%; border-radius:5px; border:solid blue 1px;margin:50px 0;
+}
+.catebox{
+    margin: 50px 0;
+    border: 1px solid black;
+    border-radius:10px;
+}
+.textcategory{
+    color: blue;
+    font-family: Tahoma;
+    font-weight:bold;
+}
+.commentbox{
+    margin: 40px 0;
+}
+.textcomment{
+    width:100%;
+    border:2px solid #f42ffe;
+    border-radius:6px;
+    padding:10px;
+    height:150px;
+    margin:20px;
+}
+.buttoncomment{
+    height:30px;
+    background: #657821;
+    color:white;
+    font-weight: bold;
+    font-size:18px;
+    border-radius:20%;
+    margin:20px;
+}
+.boxco{
+    margin:20px;
+    border: 0.5px #657821 solid;
+    padding:10px;
+    background: #66ffff;
+}
+.namecm{
+    color:blue;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Tahoma;
+}
+.plotcm{
+    color:black;
+    font-size:15px;
+}
+.btnextchap{
+    margin: 40px 0;
+    width:100%;
+    height: 40px;
+    border: solid white 1px;
+    border-radius: 10%;
+}
