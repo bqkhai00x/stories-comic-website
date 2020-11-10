@@ -48,7 +48,6 @@ if (isset($_POST['click_dangki'])){
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" type="text/css" href="css/header2.css">
 	<link rel="stylesheet" type="text/css" href="css/dangki.css">
 
 	<script type="text/javascript">
@@ -171,7 +170,7 @@ if (isset($_POST['click_dangki'])){
 			include "config.php";
 			if(!$error){
 		    //Kiểm tra tên đăng nhập đã tồn tại chưa
-			$query = mysqli_query($conn,"SELECT username,password FROM account WHERE username='$username'");
+			$query = mysqli_query($conn,"SELECT account,password FROM users WHERE account='$username'");
 			$row = mysqli_fetch_array($query);
 		    if ($row != 0) {
 		        echo "<p>Tên đăng nhập này đã tồn tại. Vui lòng sử dụng tên khác. </p>";
@@ -180,14 +179,15 @@ if (isset($_POST['click_dangki'])){
 		    {	
 
 		    	//Kiểm tra tên email đã tồn tại chưa
-				$query = mysqli_query($conn,"SELECT username,password FROM account WHERE Email='$email'");
+				$query = mysqli_query($conn,"SELECT account,password FROM account WHERE Email='$email'");
 				$row = mysqli_fetch_array($query);
 			    if ($row != 0) {
 			        echo "<p>Email này đã tồn tại. Vui lòng sử dụng email khác. </p>";
 			    }
 		    	else
 		    	{
-			    	$sql = "INSERT INTO account (Username,Password, fullname,Email,BirthDate) VALUES ('$username', '$pw', '$fullname','$email','$bd')";
+			    	$sql = "INSERT INTO users (account,Password, fullname,Email,BirthDay) 
+					VALUES ('$username', '$pw', '$fullname','$email','$bd')";
 	   				if (mysqli_query($conn, $sql)){
 	   				$_SESSION['username'] = $username;
 	   				$_SESSION['count'] = 0;
@@ -208,40 +208,15 @@ if (isset($_POST['click_dangki'])){
 	</div>
 		<p class="wthree w3l">Đã có tài khoản?</p>
 		<button onclick="dangnhap();">Đăng nhập</button>
-		<p class="wthree w3l"><br>Bạn có thể đăng nhập với</p>
-		<ul class="social-agileinfo wthree2">
-			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-		</ul>
 	</div>
 	<div class="clear"></div></div>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#"><img class="" style="width:50px;height:auto;" ass="" src="https://www.upsieutoc.com/images/2019/12/07/logo.png" alt="errorr"></a>
+	  <a href="index.php">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Trang chủ</button>
+	  </a>
   </div>
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><a href="index.php">Home</a></li>
-      <li><a href="truyenhot.php">Danh sách truyện</a></li>
-      <li><a href="truyenmoi.php">Truyện mới</a></li>
-      <li><a href="theloai.php">Thể loại</a></li>
-      <li><a href="taikhoan.php">Tài khoản</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="dangnhap.php">Đăng nhập</a></li>
-      </ul>
-  </div><!-- /.navbar-collapse -->
 </nav>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 </body>	

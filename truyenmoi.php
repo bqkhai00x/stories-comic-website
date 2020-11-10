@@ -1,58 +1,43 @@
-<?php require 'head.php'; ?>
-
-
-				<!---->	
-				<div class="in-line">
-					<div class="para-an">
-						<h3>TRUYỆN MỚI NHẤT</h3>
+<?php require 'header.php'; ?>
+<br>
+<br>	
+<div class="in-line">
+	<div class="container">
+		<div class="para-an">
+			<h3>TRUYỆN MỚI NHẤT</h3>
+		</div>
+		<div class="manga-in">
+			<?php include 'config.php';
+			$stmt = $conn->prepare("SELECT * FROM `stories` ORDER BY `story_id` DESC LIMIT 16");
+			$temp = 1;
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while ($row = $result->fetch_assoc()) {
+				if (($temp % 4) == 0) {
+					echo '<div class="row">';
+				}
+				echo '
+					<div class="col-sm-3">
+						<a href="doc.php?id=' . $row['story_id'] . '"><img class="img-responsive pic-in" src="' . $row['story_image'] . '" alt=" " ></a>
+						
+						<p>' . $row['story_name'] . '</p>
+						<span>New  | <a href="doc.php?id=' . $row['story_id'] . '">Đọc truyện</a></span>
 					</div>
-					<div class="manga-in">
-						<?php include 'config.php'; 
-                    $stmt=$conn->prepare("SELECT * FROM Story ORDER BY MSS DESC");
-                    $temp = 1;
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    while($row = $result->fetch_assoc()) {
-					if(($temp%4)==0){
-                        echo '<div class="row">';
-                    }
-					echo '
-						<div class="col-sm-3">
-							<a href="'.$row['link'].'"><img class="img-responsive pic-in" src="'.$row['coverpicture'].'" alt=" " ></a>
-							
-							<p>'.$row['Name'].'</p>
-							<span>New  | <a href="'.$row['link'].'">Đọc truyện</a></span>
-						</div>
-						';
-                    if($temp%4==0){
-                        echo '</div>';
-                    }
-                    
-					if($temp > 9) break;
-                    $temp = $temp + 1;
-                    
-                    }
-                    $conn->close();
-                    ?>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-
-
-	<div class="footer">
-		<div class="container">
-				<div class="footer-class">
-				<div class="class-footer">
-					<ul>
-						<li ><a href="index.html" class="scroll">HOME</a><label>|</label></li>
-						<li><a href="#" class="scroll">TRUYỆN HOT</a><label>|</label></li>
-						<li><a href="#" class="scroll">TRUYỆN MỚI</a><label>|</label></li>
-						<li><a href="#" class="scroll">THỂ LOẠI</a><label>|</label></li>
-						<li><a href="#" class="scroll">ĐĂNG NHẬP</a><label>|</label></li>
-						<li><a href="#" class="scroll">TÀI KHOẢN</a></li>
-					</ul>
-			 	</div>
-		 </div>
+				';
+				if ($temp % 4 == 0) {
+					echo '</div>';
+				}
+				$temp = $temp + 1;
+			}
+			$conn->close();
+			?>
+			<div class="clearfix"> </div>
+		</div>
 	</div>
-</body>	
+</div>
+
+
+<?php include 'footer.php' ?>
+</body>
+
 </html>

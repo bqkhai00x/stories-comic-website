@@ -1,6 +1,5 @@
-<?php require 'head.php'; ?>
+<?php require 'header.php'; ?>
 <link rel="stylesheet" type="text/css" href="css/dangnhap.css">
-<link rel="stylesheet" type="text/css" href="css/header2.css">
 <br /><br /><br /><br />
 <script type="text/javascript">
 	function dangki()
@@ -43,12 +42,12 @@
 		<button onclick="trangchu();">Về trang chủ</button>
 		<?php
 		echo "<br>Thông tin của bạn: <br>";
-		$query = mysqli_query($conn,"SELECT * FROM account WHERE username='$username'");
+		$query = mysqli_query($conn,"SELECT * FROM users WHERE account='$username'");
 		$row = mysqli_fetch_array($query);
-		echo "<br>Tên đăng nhập: ".$row['Username'];
-		echo "<br>Email: ".$row['Email'];
-		echo "<br>Sinh nhật: ".$row['BirthDate'];
-		echo "<br>Giới tính: ".$row['Sex'];
+		echo "<br>Tên đăng nhập: ".$row['account'];
+		echo "<br>Email: ".$row['email'];
+		echo "<br>Sinh nhật: ".$row['birthday'];
+		echo "<br>Giới tính: ".(($row['sex']==null)? 'không xác định':$row['sex']);
 		echo "</div>";
 		?>
 		
@@ -61,7 +60,8 @@
         if (isset($_POST['click_dangxuat'])){
         	if (isset($_SESSION['username'])){
     		unset($_SESSION['username']); // xóa session login
-		    }
+			}
+			header("location:dangnhap.php");
 		};
 		}
 		else
@@ -73,16 +73,9 @@
 		<button onclick="dangnhap();">Đăng nhập</button>
 		<p class="wthree w3l"><br>Chưa có tài khoản?</p>
 		<button onclick="dangki();">Đăng kí</button>
-		<p class="wthree w3l"><br>Bạn có thể đăng nhập với</p>
 		<?php
 		}
 		?>
-		<ul class="social-agileinfo wthree2">
-			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-		</ul>
 	</div>
 	<div class="clear"></div>
 

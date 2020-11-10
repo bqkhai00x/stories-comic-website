@@ -35,7 +35,6 @@
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
 
 <link rel="stylesheet" type="text/css" href="css/dangki.css">
-<link rel="stylesheet" type="text/css" href="css/header2.css">
 
 <script type="text/javascript">
 	function dangki()
@@ -49,8 +48,7 @@
 	if (isset($_SESSION['username'])){
 		$_SESSION['count'] = 0;
 		header("Location: taikhoan.php");
-	}
-				
+	}	
 ?>
 </head>
 
@@ -102,78 +100,49 @@
 				</script>
 				<div style = "color:red; margin-left:20%" >
 			<?php
-  
                 if (isset($_POST['username'])){
                 	$name = $_POST['username'];
 					$pw = $_POST['password'];	
 					include "config.php";
 					if(!$error){
-                    //Kiểm tra tên đăng nhập có tồn tại không
-        			$query = mysqli_query($conn,"SELECT username,password FROM account WHERE username='$name'");
-        			$row = mysqli_fetch_array($query);
-				    if ($row == 0) {
-				        echo "<p>Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. </p>";
-				    }
-				    else
-				    {
-				    	 //So sánh 2 mật khẩu có trùng khớp hay không
-					    if ($pw != $row['password']) {
-					        echo "Mật khẩu không đúng. Vui lòng nhập lại.";
-					       
-					    }
-					    else
-					    {
-					    	//Lưu tên đăng nhập
-						    $_SESSION['username'] = $name; 
-						    $_SESSION['count'] = 0;
-						    header("Location: taikhoan.php");
+						//Kiểm tra tên đăng nhập có tồn tại không
+						$query = mysqli_query($conn,"SELECT account,password FROM users WHERE account='$name'");
+						$row = mysqli_fetch_array($query);
+						if ($row == 0) {
+							echo "<p>Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. </p>";
+						}
+						else{
+							//So sánh 2 mật khẩu có trùng khớp hay không
+							if ($pw != $row['password']) {
+								echo "Mật khẩu không đúng. Vui lòng nhập lại.";
+							
+							}
+							else{
+								//Lưu tên đăng nhập
+								$_SESSION['username'] = $name; 
+								$_SESSION['count'] = 0;
+								header("Location: taikhoan.php");
+							}
 						}
 					}
-				}
-				else{
-					echo "Lỗi";
-				}
-
+					else{
+						echo "Lỗi";
+					}
                 }
                 ob_end_flush(); 
            ?>
            </div>
 			<p class="wthree w3l">Chưa có tài khoản?</p>
 			<button onclick="dangki();">Đăng kí</button>
-			<p class="wthree w3l"><br>Bạn có thể đăng nhập với</p>
-			<ul class="social-agileinfo wthree2">
-				<li><a href="https://fb.com"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-			</ul>
 		</div>
 		<div class="clear"></div></div>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#"><img class="" style="width:50px;height:auto;" ass="" src="https://www.upsieutoc.com/images/2019/12/07/logo.png" alt="errorr"></a>
+	  <a href="index.php">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Trang chủ</button>
+	  </a>
   </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><a href="index.php">Home</a></li>
-      <li><a href="truyenhot.php">Danh sách truyện</a></li>
-      <li><a href="truyenmoi.php">Truyện mới</a></li>
-      <li><a href="theloai.php">Thể loại</a></li>
-      <li><a href="taikhoan.php">Tài khoản</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="dangnhap.php">Đăng nhập</a></li>
-      </ul>
-  </div>/.navbar-collapse
 </nav>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 </body>	

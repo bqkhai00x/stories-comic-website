@@ -25,9 +25,9 @@
 		session_start();
 		$username = $_SESSION['username'];
 	    include "config.php";
-		$query = mysqli_query($conn,"SELECT * FROM account WHERE username='$username'");
+		$query = mysqli_query($conn,"SELECT * FROM users WHERE account='$username'");
 		$row = mysqli_fetch_array($query);
-		$password =$row['Password'];
+		$password =$row['password'];
 
 	?>
 </head>
@@ -41,24 +41,20 @@
 	<div class="container">
 	<div class="navbar-header">
 	<div>
-	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	<span class="sr-only"></span>
-
-	</button>
-	<a id="logo" class="navbar-brand" href="index.php"><img class="" ass="" src="https://www.upsieutoc.com/images/2019/12/07/logo.png" alt="errorr"></a>
+	<!-- <a id="logo" class="navbar-brand" href="index.php"><img class="" ass="" src="https://www.upsieutoc.com/images/2019/12/07/logo.png" alt="errorr"></a> -->
 	</div>
-	</div>
-	<div id="menu" class="navbar-collapse collapse">
-	<ul class="nav navbar-nav navbar-left">
-	<li class=" home"><a href="index.php" data-title="Home">Trang chủ</a></li>
-	<li class="service"><a href="truyenhot.php" data-title="Truyện Hot">Truyện Hot</a></li>
-	<li class="portfolio"><a href="truyenmoi.php" data-title="Truyện mới">Truyện mới</a></li>
-	<li class="about"><a href="theloai.php" data-title="Thể loại">Thể loại</a></li>
-	<li class="team"><a href="dangnhap.php" data-title="Đăng nhập">Đăng nhập</a></li>
-	<li class="active client"><a href="Taikhoan.php" data-title="Tài Khoản">Tài khoản</a></li>
-	</ul>
-	</div>
-	</div>
+	<!-- </div>
+		<div id="menu" class="navbar-collapse collapse">
+		<ul class="nav navbar-nav navbar-left">
+		<li class=" home"><a href="index.php" data-title="Home">Trang chủ</a></li>
+		<li class="service"><a href="truyenhot.php" data-title="Truyện Hot">Truyện Hot</a></li>
+		<li class="portfolio"><a href="truyenmoi.php" data-title="Truyện mới">Truyện mới</a></li>
+		<li class="about"><a href="theloai.php" data-title="Thể loại">Thể loại</a></li>
+		<li class="team"><a href="dangnhap.php" data-title="Đăng nhập">Đăng nhập</a></li>
+		<li class="active client"><a href="Taikhoan.php" data-title="Tài Khoản">Tài khoản</a></li>
+		</ul>
+		</div>
+	</div> -->
 	</div>
 	</div>
 	</div> 
@@ -160,5 +156,8 @@
 	</div>
 	<div class="clear"></div>
 
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only"></span>
+	</button>
 </body>	
 </html>
